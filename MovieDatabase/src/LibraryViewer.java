@@ -11,7 +11,7 @@ public class LibraryViewer {
 	
 	public void LibraryView(){
 		while(keepGoing){
-			System.out.println("Hello, what would you like to do?  Type 'Help' for assistance.");
+			System.out.println("Hello, what would you like to do?");
 			String response = scan.nextLine();
 			String[] keywords = response.split("--");
 			if(keywords[0].equalsIgnoreCase("Help")){
@@ -48,6 +48,7 @@ public class LibraryViewer {
 				}
 			} else {
 				System.out.println("Error - invalid command");
+				System.out.println("Type 'Help' for assistance.");
 			}
 			
 		}
@@ -59,8 +60,10 @@ public class LibraryViewer {
 	private void printHelp(){
 		System.out.println("You can enter the following commands:");
 		System.out.println("    Help - outputs this help message");
+		System.out.println("    Search--name - search library for specific movie with name");
 		System.out.println("    Add--film name--film rating - adds the specified movie to your library");
 		System.out.println("    Print - prints out your library");
+		System.out.println("    Edit--Name - edit a movie currently in your library");
 		System.out.println("    Quit - quits the app");
 	}
 	
