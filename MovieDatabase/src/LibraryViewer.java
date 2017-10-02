@@ -1,4 +1,6 @@
 import java.util.*;
+import Views.HelpView;;
+
 public class LibraryViewer {
 	private Scanner scan = new Scanner(System.in);
 	private Library myLibrary;
@@ -15,7 +17,7 @@ public class LibraryViewer {
 			String response = scan.nextLine();
 			String[] keywords = response.split("--");
 			if(keywords[0].equalsIgnoreCase("Help")){
-				printHelp();
+				new HelpView();
 			} else if(keywords[0].equalsIgnoreCase("Quit")){
 				keepGoing = false;
 			} else if(keywords[0].equalsIgnoreCase("Print")){
@@ -55,16 +57,6 @@ public class LibraryViewer {
 		
 		System.out.println("Goodbye");
 		scan.close();
-	}
-	
-	private void printHelp(){
-		System.out.println("You can enter the following commands:");
-		System.out.println("    Help - outputs this help message");
-		System.out.println("    Search--name - search library for specific movie with name");
-		System.out.println("    Add--film name--film rating - adds the specified movie to your library");
-		System.out.println("    Print - prints out your library");
-		System.out.println("    Edit--Name - edit a movie currently in your library");
-		System.out.println("    Quit - quits the app");
 	}
 	
 	private void printMovie(){
