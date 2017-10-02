@@ -1,3 +1,10 @@
+/* MovieDatabase.Views.HelpView
+ * Last Updated: Oct 2, 2017
+ * Controls what is output when the 
+ *   Help menu is requested
+ * © lucky-mac11
+ */
+
 package Views;
 
 public class HelpView {

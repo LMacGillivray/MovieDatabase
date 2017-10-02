@@ -1,3 +1,7 @@
+/* © lucky-mac11
+ * Last Updated: Oct 2, 2017
+ * Starts the movie library
+ */
 
 public class MovieLibrary {
 

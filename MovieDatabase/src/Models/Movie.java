@@ -1,3 +1,10 @@
+/* MovieDatabase.Models.Movie
+ * Last Updated: Oct 2, 2017
+ * Movie object
+ * Stores name, year, rating, and format
+ * © lucky-mac11
+ */
+
 package Models;
 
 public class Movie {

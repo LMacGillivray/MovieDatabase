@@ -1,5 +1,11 @@
+/* MovieDatabase.Models.Library
+ * Last Updated: Oct 2, 2017
+ * Library object
+ * Stores an ArrayList of Movie objects
+ * © lucky-mac11
+ */
+package Models;
 import java.util.*;
-import Models.Movie;
 
 public class Library {
 	private ArrayList<Movie> library;

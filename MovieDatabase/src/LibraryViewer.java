@@ -1,6 +1,11 @@
+/* MovieDatabase.Controllers.MovieLibrary
+ * © lucky-mac11
+ * Last Updated: Oct 2, 2017
+ * Controls basic user input and how it affects the library
+ */
 import java.util.*;
 
-import Models.Movie;
+import Models.*;
 import Views.HelpView;;
 
 public class LibraryViewer {
