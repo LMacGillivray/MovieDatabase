@@ -1,4 +1,6 @@
 import java.util.*;
+
+import Models.Movie;
 import Views.HelpView;;
 
 public class LibraryViewer {

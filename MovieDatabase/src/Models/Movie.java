@@ -1,3 +1,5 @@
+package Models;
+
 public class Movie {
 	private String name;
 	private String year;

@@ -1,4 +1,5 @@
 import java.util.*;
+import Models.Movie;
 
 public class Library {
 	private ArrayList<Movie> library;
