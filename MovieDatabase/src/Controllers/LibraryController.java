@@ -10,14 +10,14 @@ import Views.HelpView;;
 
 public class LibraryController {
 	private Scanner scan = new Scanner(System.in);
-	private Library myLibrary;
+	private Library library;
 	private Boolean keepGoing;
 	
 	/* LibraryController Constructor
 	 * Creates a library to be searched or manipulated
 	 */
 	public LibraryController(){
-		myLibrary = new Library();	// Library object, the item that is manipulated
+		library = new Library();	// Library object, the item that is manipulated
 	}
 	
 	/* Main controller for library, runs a loop while 
@@ -49,17 +49,7 @@ public class LibraryController {
 				
 			} else if (response[0].equalsIgnoreCase("Add")){
 				// Adds a movie to the library
-				if(response.length == 3){
-					// Add a movie with a rating
-					myLibrary.addMovie(response[1],response[2]);
-				} else if (response.length == 2){
-					// Add a movie with just the title
-					myLibrary.addMovie(response[1], null);
-				} else {
-					// If no movie is entered, ask for a movie
-					System.out.println("Please enter a movie title to add.");
-					myLibrary.addMovie(scan.nextLine(),null);
-				}
+				new AddMovieController(response, library, scan);
 				
 			}  else if (response[0].equalsIgnoreCase("Search")){
 				// Search for, and output movie details
@@ -95,15 +85,15 @@ public class LibraryController {
 	}
 	
 	private void printMovie(){
-		if(myLibrary.getSize() == 0){
+		if(library.getSize() == 0){
 			System.out.println("You have no movies");
 		} else {
-			myLibrary.printLibrary();
+			library.printLibrary();
 		}
 	}
 	
 	private Movie search(String name){
-		Movie wanted = myLibrary.searchLibrary(name);
+		Movie wanted = library.searchLibrary(name);
 		if(wanted == null){
 			System.out.println("The movie does not exist in your library");
 		}
