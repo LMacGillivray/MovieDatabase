@@ -6,7 +6,7 @@
 package Controllers;
 import java.util.*;
 import Models.*;
-import Views.HelpView;;
+import Views.*;
 
 public class LibraryController {
 	private Scanner scan = new Scanner(System.in);
@@ -26,6 +26,7 @@ public class LibraryController {
 	 */
 	public void LibraryView(){
 		// Boolean object to check if user requested to quit
+		new DatabaseWindow();
 		keepGoing = true;
 		while(keepGoing){
 			System.out.println("Hello, what would you like to do?");
@@ -37,7 +38,7 @@ public class LibraryController {
 				// Calls HelpView object to output the options menu
 				new HelpView();
 				
-			} else if(response[0].equalsIgnoreCase("Quit")){
+			} else if((response[0].equalsIgnoreCase("Quit"))||(response[0].equalsIgnoreCase("Exit"))){
 				/* Set loop Boolean to false so the 
 				 * program can quit
 				 */
@@ -49,7 +50,7 @@ public class LibraryController {
 				
 			} else if (response[0].equalsIgnoreCase("Add")){
 				// Adds a movie to the library
-				new AddMovieController(response, library, scan);
+				new OldAddMovieController(response, library, scan);
 				
 			}  else if (response[0].equalsIgnoreCase("Search")){
 				// Search for, and output movie details

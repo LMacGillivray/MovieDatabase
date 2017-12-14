@@ -2,8 +2,8 @@ package Controllers;
 import java.util.Scanner;
 import Models.Library;
 
-public class AddMovieController {
-	public AddMovieController(String[] response, Library library, Scanner scan){
+public class OldAddMovieController {
+	public OldAddMovieController(String[] response, Library library, Scanner scan){
 		if(response.length == 3){
 			// Add a movie with a rating
 			library.addMovie(response[1],response[2]);
