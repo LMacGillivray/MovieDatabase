@@ -23,9 +23,7 @@ public class AddMovieController implements ActionListener{
 			if(fields[1].getText().equals("")) {
 				fields[1].setText("UK");
 			}
-			if(fields[3].getText().equals("")) {
-				fields[3].setText("Unknown");
-			}
+			
 			Movie movie = new Movie(fields[0].getText(), fields[1].getText());
 			movie.setYear(fields[2].getText());
 			movie.setDirector(fields[3].getText());

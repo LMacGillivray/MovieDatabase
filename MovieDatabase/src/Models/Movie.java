@@ -19,12 +19,7 @@ public class Movie {
 	
 	public Movie(String name, String rated){
 		this.name = name;
-		//this.year = year;
-		//if(!(rated == null)){
-			//this.setRating(rated);
-		//} else {
-			//this.setRating("NR");
-		//}
+		this.rating = rated;
 	}
 	
 	public String getName(){
@@ -43,51 +38,18 @@ public class Movie {
 		}
 	}
 	
-	public int getYear(){
-		return year;
-	}
-	
-	public String getRating(){
-		return rating;
-	}
-	
-	public void setRating(String newRating){
-		String[] ratings = {"G","PG","PG-13","14A","18A","R"};
-		Boolean rated = false;
-		for(int i = 0; i < ratings.length; i++){
-			if(newRating.equals(ratings[i])){
-				rating = newRating;
-				rated = true;
-			} else if(!rated){
-				rating = "NR";
-			}
-		}
-	}
-
-	public String getDirector(){
-		return director;
-	}
-	
 	public void setDirector(String newDirector){
-		director = newDirector;
+		if(newDirector.equals("")) {
+			this.director = "Unknown";
+		} else {
+			director = newDirector;
+		}
 	}
 	
-	public String toString(){
-		String string = "\n   Name: " + name;
-		if(year != 0){
-			string += " (" + year + ")";
-		}
-		string += "\n   Rating: " + rating + "\n";
-		if(!director.equals("Unknown")){
-			string += "   director: " + director + "\n";
-		}
-		return string;
-	}
-
 	public String getRelevantData() {
 		String str = name;
 		if(year != 0) { 
-			str += "	(" + year + ")";
+			str += "    (" + year + ")";
 		}
 		return str;
 	}

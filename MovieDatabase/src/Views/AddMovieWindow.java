@@ -14,6 +14,7 @@ import Controllers.DatabaseController;
 import Models.Movie;
 
 public class AddMovieWindow extends JFrame{
+	private static final long serialVersionUID = 1L;
 	private final String[] PROPERTIES = {"Movie Name", "Rating", "Year", "Director"};
 	private DatabaseController controller;
 	private JTextField[] fields;

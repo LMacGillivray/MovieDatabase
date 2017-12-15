@@ -3,14 +3,10 @@ package Views;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
 import Controllers.DatabaseController;
@@ -21,6 +17,7 @@ public class DatabaseWindow extends JFrame{
 	private DatabaseController control;
 	private Library library;
 	private JList<String> list;
+	
 	public DatabaseWindow(){
 		super("My Movie Database");
 		
@@ -61,5 +58,9 @@ public class DatabaseWindow extends JFrame{
 	
 	public void newScreen() {
 		list.setListData(library.getRelevantData());
+	}
+	
+	public static void main(String[] args) {
+		new DatabaseWindow();
 	}
 }
