@@ -50,7 +50,7 @@ public class LibraryController {
 				
 			} else if (response[0].equalsIgnoreCase("Add")){
 				// Adds a movie to the library
-				new OldAddMovieController(response, library, scan);
+				//new AddMovieController(response, library, scan);
 				
 			}  else if (response[0].equalsIgnoreCase("Search")){
 				// Search for, and output movie details
@@ -108,7 +108,7 @@ public class LibraryController {
 		} else if(property.equalsIgnoreCase("Rating")){
 			movie.setRating(newValue);
 		} else if(property.equalsIgnoreCase("Format")){
-			movie.setFormat(newValue);
+			//movie.setFormat(newValue);
 		} else if(property.equalsIgnoreCase("Year")){
 			movie.setYear(newValue);
 		}

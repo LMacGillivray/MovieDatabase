@@ -9,9 +9,9 @@ package Models;
 
 public class Movie {
 	private String name;
-	private String year;
 	private String rating;
-	private String format;
+	private int year;
+	private String director;
 	
 	public Movie(String name){
 		new Movie(name, null);
@@ -20,11 +20,11 @@ public class Movie {
 	public Movie(String name, String rated){
 		this.name = name;
 		//this.year = year;
-		if(!(rated == null)){
-			this.setRating(rated);
-		} else {
-			this.setRating("NR");
-		}
+		//if(!(rated == null)){
+			//this.setRating(rated);
+		//} else {
+			//this.setRating("NR");
+		//}
 	}
 	
 	public String getName(){
@@ -36,10 +36,14 @@ public class Movie {
 	}
 	
 	public void setYear(String newYear){
-		year = newYear;
+		if(newYear.equals("")) {
+			year = 0; 
+		} else { 
+			year = Integer.parseInt(newYear);
+		}
 	}
 	
-	public String getYear(){
+	public int getYear(){
 		return year;
 	}
 	
@@ -60,22 +64,22 @@ public class Movie {
 		}
 	}
 
-	public String getFormat(){
-		return format;
+	public String getDirector(){
+		return director;
 	}
 	
-	public void setFormat(String newFormat){
-		format = newFormat;
+	public void setDirector(String newDirector){
+		director = newDirector;
 	}
 	
 	public String toString(){
 		String string = "\n   Name: " + name;
-		if(year != null){
+		if(year != 0){
 			string += " (" + year + ")";
 		}
 		string += "\n   Rating: " + rating + "\n";
-		if(format != null){
-			string += "   Format: " + format + "\n";
+		if(!director.equals("Unknown")){
+			string += "   director: " + director + "\n";
 		}
 		return string;
 	}

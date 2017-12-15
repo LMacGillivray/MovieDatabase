@@ -18,6 +18,10 @@ public class Library {
 		library.add(new Movie(name,rating));
 	}
 	
+	public void addMovie(Movie movie) {
+		library.add(movie);
+	}
+	
 	public void printLibrary(){
 		for(int i = 0; i < library.size(); i++){
 			Movie mov = library.get(i);
@@ -45,5 +49,7 @@ public class Library {
 		}
 		return library.get(index);
 	}
+
+	
 	
 }
