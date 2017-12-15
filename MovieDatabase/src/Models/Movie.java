@@ -83,4 +83,12 @@ public class Movie {
 		}
 		return string;
 	}
+
+	public String getRelevantData() {
+		String str = name;
+		if(year != 0) { 
+			str += "	(" + year + ")";
+		}
+		return str;
+	}
 }

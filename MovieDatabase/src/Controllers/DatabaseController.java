@@ -27,6 +27,7 @@ public class DatabaseController implements ActionListener {
 
 	public void addToLibrary(Movie movie) {
 		library.addMovie(movie);
+		window.newScreen();
 	}
 
 }

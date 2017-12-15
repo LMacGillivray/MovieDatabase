@@ -50,6 +50,16 @@ public class Library {
 		return library.get(index);
 	}
 
+	public String[] getRelevantData() {
+		String[] str = new String[library.size()];
+		int i = 0;
+		for(Movie movie : library) {
+			str[i] = movie.getRelevantData();
+			i++;
+		}
+		return str;
+	}
+
 	
 	
 }
