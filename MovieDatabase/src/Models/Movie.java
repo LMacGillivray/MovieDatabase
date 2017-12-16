@@ -20,6 +20,7 @@ public class Movie {
 	public Movie(String name, String rated){
 		this.name = name;
 		this.rating = rated;
+		this.year = 0;
 	}
 	
 	public String getName(){
@@ -31,9 +32,7 @@ public class Movie {
 	}
 	
 	public void setYear(String newYear){
-		if(newYear.equals("")) {
-			year = 0; 
-		} else { 
+		if(!newYear.equals("")) {
 			year = Integer.parseInt(newYear);
 		}
 	}
@@ -52,5 +51,31 @@ public class Movie {
 			str += "    (" + year + ")";
 		}
 		return str;
+	}
+	
+	public String toString() { 
+		String str = name;
+		if(year == 0)
+			str += "   (" + year + ")";
+		str += "   Rated:" + rating;
+		if(director == null)
+			str += "   Directed by: " + director;
+		return str;
+	}
+
+	public String getRating() {
+		return rating;
+	}
+
+	public String getYear() {
+		if (year != 0) {
+			return Integer.toString(year);
+		}
+		return "Unknown";
+	}
+
+	public String getDirector() {
+		// TODO Auto-generated method stub
+		return director;
 	}
 }

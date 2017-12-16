@@ -11,12 +11,14 @@ import javax.swing.ListSelectionModel;
 
 import Controllers.DatabaseController;
 import Models.Library;
+import Models.Movie;
 
 public class DatabaseWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private DatabaseController control;
 	private Library library;
 	private JList<String> list;
+	private JMenuItem viewMenuItem;
 	
 	public DatabaseWindow(){
 		super("My Movie Database");
@@ -33,10 +35,10 @@ public class DatabaseWindow extends JFrame{
 		
 		list = new JList<String>();
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
-		//list.addListSelectionListener(problemControl);
+		list.addListSelectionListener(control);
 		this.add(list, BorderLayout.CENTER);
 		
+		this.newScreen();
 		this.setVisible(true);
 	}
 	
@@ -51,16 +53,28 @@ public class DatabaseWindow extends JFrame{
 		addMenuItem.addActionListener(control);
 		fileMenu.add(addMenuItem);
 		
-		JMenuItem editMenuItem = new JMenuItem("Edit");
-		editMenuItem.addActionListener(control);
-		fileMenu.add(editMenuItem);
+		viewMenuItem = new JMenuItem("View");
+		viewMenuItem.addActionListener(control);
+		viewMenuItem.setEnabled(false);
+		fileMenu.add(viewMenuItem);
 	}
 	
 	public void newScreen() {
 		list.setListData(library.getRelevantData());
 	}
 	
+	public void setOptionsEnable() {
+		viewMenuItem.setEnabled(true);
+	}
+
 	public static void main(String[] args) {
 		new DatabaseWindow();
+	}
+
+	public Movie getSelectedMovie() {
+		String str = list.getSelectedValue();
+		str = str.substring(0, str.lastIndexOf('('));
+		System.out.println(str);
+		return library.find(str.trim());
 	}
 }

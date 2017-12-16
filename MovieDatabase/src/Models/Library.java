@@ -12,6 +12,11 @@ public class Library {
 	
 	public Library(){
 		library = new ArrayList<Movie>();
+		
+		Movie pulpFiction = new Movie("Pulp Fiction", "R");
+		pulpFiction.setYear("1994");
+		pulpFiction.setDirector("Quentin Tarantino");
+		this.addMovie(pulpFiction);
 	}
 
 	public void addMovie(String name, String rating){
@@ -34,8 +39,15 @@ public class Library {
 	
 	public void printLibrary(){
 		for(int i = 0; i < library.size(); i++){
-			Movie mov = library.get(i);
-			System.out.println(mov.toString());
+			System.out.println(library.get(i).toString());
 		}
+	}
+
+	public Movie find(String trim) {
+		for (Movie mov : library) {
+			if (mov.getName().equals(trim))
+				return mov;
+		}
+		return null;
 	}
 }
