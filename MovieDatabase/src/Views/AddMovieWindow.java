@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -16,6 +17,7 @@ import Models.Movie;
 public class AddMovieWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private final String[] PROPERTIES = {"Movie Name", "Rating", "Year", "Director"};
+	public enum errorType {NO_NAME_ERROR, YEAR_INPUT_ERROR};
 	private DatabaseController controller;
 	private JTextField[] fields;
 	
@@ -72,6 +74,25 @@ public class AddMovieWindow extends JFrame{
 	 */
 	public JTextField[] getFields() {
 		return fields;
+	}
+	
+	/** This function notifies the user of an error when inputing data.
+	 * 
+	 * @param error - This is the errorType that has occurred
+	 */
+	public void sendError(errorType error) {
+		String str = "";
+		if (error == errorType.NO_NAME_ERROR) {
+			str += "No name given.  Please provide a name.";
+		} else if (error == errorType.YEAR_INPUT_ERROR) {
+			str += "Incorrect year format, please input proper year";
+		}
+		
+		JPanel panel = new JPanel();
+		panel.add(new JLabel(str));
+		
+		JOptionPane.showOptionDialog(null, panel, "Movie Input Error", JOptionPane.OK_OPTION, 
+				JOptionPane.ERROR_MESSAGE, null, new String[] {"Okay"}, "Okay");
 	}
 	
 	/** This function closes the current window as it is no longer required.
